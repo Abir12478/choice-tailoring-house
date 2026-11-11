@@ -9,421 +9,488 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a192f;
-            --secondary: #112240;
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
+            --primary: #0b1220;
+            --primary-light: #131c2e;
+            --secondary: #1a2740;
+            --gold: #c9a227;
+            --gold-soft: #e8d48b;
+            --gold-dark: #a88b1e;
             --bkash: #e2136e;
-            --text-dark: #1e293b;
-            --text-light: #f8fafc;
-            --bg-light: #f1f5f9;
-            --card-shadow: 0 8px 30px rgba(10, 25, 47, 0.08);
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(11, 18, 32, 0.08);
+            --shadow-hover: 0 20px 50px rgba(11, 18, 32, 0.14);
         }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
         html {
             scroll-behavior: smooth;
         }
+
         body {
-            font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            font-family: 'Hind Siliguri', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(226, 19, 110, 0.45); }
-            50% { box-shadow: 0 0 22px 6px rgba(226, 19, 110, 0.28); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header */
+        /* ========== HEADER ========== */
         header {
-            background: linear-gradient(145deg, #050d1a 0%, var(--primary) 45%, var(--secondary) 100%);
-            color: var(--text-light);
+            background: linear-gradient(160deg, #070d18 0%, #0b1220 40%, #131c2e 100%);
+            color: white;
             text-align: center;
-            padding: 60px 20px 50px;
-            border-bottom: 5px solid var(--gold);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            padding: 70px 20px 60px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.12) 0%, transparent 70%);
+            top: -120px;
+            right: -80px;
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+            bottom: -100px;
+            left: -60px;
+            border-radius: 50%;
+        }
+
+        .bismillah {
+            font-size: 14px;
+            color: var(--gold-soft);
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--gold-soft);
+            border: 1px solid rgba(201, 162, 39, 0.45);
+            padding: 7px 20px;
+            border-radius: 40px;
+            font-size: 13.5px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        header h1 {
+            font-size: clamp(30px, 7vw, 44px);
+            font-weight: 700;
+            margin-bottom: 14px;
+            background: linear-gradient(90deg, #c9a227, #f5e6a3, #c9a227);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: clamp(15px, 3.8vw, 17.5px);
+            color: #94a3b8;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 18px 40px;
+        }
+
+        .section {
+            padding-top: 55px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(22px, 5vw, 28px);
+            font-weight: 700;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-top: 12px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== SERVICE CARDS ========== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
             position: relative;
             overflow: hidden;
         }
-        header::before {
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(201, 162, 39, 0.25);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: linear-gradient(145deg, #f8f4e8, #f0e6c8);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
+        }
+
+        .card h3 {
+            font-size: 17.5px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 13.8px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ========== FEATURES ========== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .feature {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 22px 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f7;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            border-color: rgba(201, 162, 39, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .feature .icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .feature h4 {
+            font-size: 15.5px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ========== BKASH BOX ========== */
+        .payment-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 36px 24px;
+            text-align: center;
+            border: 2px solid var(--bkash);
+            box-shadow: 0 12px 40px rgba(226, 19, 110, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-box::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        .bismillah {
-            font-size: 15px;
-            color: var(--gold-light);
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-            animation: fadeInDown 0.9s ease forwards;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.18);
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 18px;
-            animation: fadeInDown 1.1s ease forwards;
-        }
-        header h1 {
-            font-size: clamp(28px, 6vw, 42px);
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(90deg, #d4af37, #fff6d1, #d4af37);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: fadeInUp 1s ease forwards, shimmer 5s linear infinite;
-        }
-        header p {
-            font-size: clamp(15px, 3.5vw, 18px);
-            color: #cbd5e1;
-            max-width: 680px;
-            margin: 0 auto;
-            animation: fadeInUp 1.3s ease forwards;
+            background: radial-gradient(circle, rgba(226, 19, 110, 0.04) 0%, transparent 60%);
         }
 
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 18px;
-        }
-        .section-title {
-            text-align: center;
-            margin: 45px 0 30px;
-        }
-        .section-title h2 {
-            font-size: clamp(22px, 5vw, 28px);
-            color: var(--primary);
-            display: inline-block;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--gold);
-            font-weight: 700;
-        }
-        .section-title p {
-            color: #64748b;
-            font-size: 15px;
-            margin-top: 10px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Grid Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 22px;
-            margin-bottom: 50px;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 28px 22px;
-            box-shadow: var(--card-shadow);
-            border-top: 4px solid var(--primary);
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.35s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-        .card:hover {
-            transform: translateY(-10px) scale(1.025);
-            box-shadow: 0 16px 40px rgba(10, 25, 47, 0.15);
-            border-top-color: var(--gold);
-        }
-        .card:hover::after {
-            opacity: 1;
-        }
-        .card-icon {
-            font-size: 42px;
-            margin-bottom: 14px;
-            display: inline-block;
-            animation: floatIcon 3.5s ease-in-out infinite;
-        }
-        .card:nth-child(2) .card-icon { animation-delay: 0.3s; }
-        .card:nth-child(3) .card-icon { animation-delay: 0.6s; }
-        .card:nth-child(4) .card-icon { animation-delay: 0.9s; }
-        .card:nth-child(5) .card-icon { animation-delay: 1.2s; }
-        .card:nth-child(6) .card-icon { animation-delay: 1.5s; }
-
-        .card h3 {
-            font-size: 18px;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .card p {
-            font-size: 14px;
-            color: #475569;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            margin-bottom: 50px;
-        }
-        .feature-item {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-        .feature-item:hover {
-            border-color: var(--gold);
-            transform: translateY(-4px);
-        }
-        .feature-item span {
-            font-size: 28px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .feature-item h4 {
-            font-size: 16px;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-        .feature-item p {
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        /* bKash Merchant Box */
-        .payment-box {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 32px 24px;
-            margin-bottom: 45px;
-            text-align: center;
-            border: 2px solid var(--bkash);
-            animation: pulseGlow 3.2s infinite;
-            box-shadow: 0 10px 35px rgba(226, 19, 110, 0.12);
-        }
         .bkash-badge {
             display: inline-block;
-            background-color: var(--bkash);
-            color: #ffffff;
+            background: var(--bkash);
+            color: white;
+            font-size: 13px;
             font-weight: 700;
-            font-size: 14px;
             padding: 6px 18px;
-            border-radius: 25px;
-            margin-bottom: 12px;
-            letter-spacing: 0.8px;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            position: relative;
         }
+
         .payment-box h3 {
-            color: var(--primary);
-            font-size: 22px;
-            margin-bottom: 6px;
+            font-size: 21px;
             font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            position: relative;
         }
+
         .payment-box > p {
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 14px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            position: relative;
         }
+
         .payment-number {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 700;
             color: var(--bkash);
-            letter-spacing: 1.5px;
-            margin: 12px 0;
-            font-family: monospace;
+            letter-spacing: 2px;
+            margin: 14px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
         }
+
         .btn-copy {
-            background-color: var(--bkash);
-            color: #ffffff;
+            background: var(--bkash);
+            color: white;
             border: none;
-            padding: 12px 28px;
-            border-radius: 10px;
+            padding: 13px 32px;
+            border-radius: 12px;
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
             font-family: inherit;
+            transition: all 0.25s ease;
+            position: relative;
         }
+
         .btn-copy:hover {
-            background-color: #c20e5d;
-            transform: scale(1.05);
+            background: #c20e5d;
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px rgba(226, 19, 110, 0.3);
         }
+
         .copy-msg {
             display: block;
-            margin-top: 10px;
-            font-size: 13px;
+            margin-top: 12px;
+            font-size: 13.5px;
             color: #16a34a;
             font-weight: 600;
             height: 20px;
             opacity: 0;
             transition: opacity 0.3s;
+            position: relative;
         }
+
         .copy-msg.show {
             opacity: 1;
         }
 
-        /* Contact Box */
+        /* ========== CONTACT BOX ========== */
         .contact-box {
-            background: linear-gradient(145deg, var(--primary), var(--secondary));
-            color: var(--text-light);
-            border-radius: 18px;
-            padding: 42px 24px;
+            background: linear-gradient(155deg, #0b1220 0%, #131c2e 100%);
+            border-radius: 20px;
+            padding: 44px 24px;
             text-align: center;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.22);
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: white;
+            box-shadow: 0 16px 50px rgba(11, 18, 32, 0.25);
+            border: 1px solid rgba(201, 162, 39, 0.3);
             position: relative;
             overflow: hidden;
         }
+
         .contact-box::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%);
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.12) 0%, transparent 70%);
+            top: -60px;
+            right: -40px;
             border-radius: 50%;
-            transform: translate(30%, -30%);
         }
+
         .contact-box h2 {
-            color: var(--gold);
-            font-size: clamp(24px, 5vw, 30px);
-            margin-bottom: 12px;
+            font-size: clamp(24px, 5.5vw, 30px);
             font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 14px;
+            position: relative;
         }
+
         .proprietor {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 600;
             margin-bottom: 6px;
-            color: #fff;
+            position: relative;
         }
+
         .address {
-            font-size: 15px;
+            font-size: 14.5px;
             color: #94a3b8;
             margin-bottom: 28px;
-            line-height: 1.6;
+            position: relative;
         }
+
         .btn-group {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 14px;
+            gap: 12px;
+            position: relative;
         }
+
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 13px 24px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            color: #fff;
+            font-size: 14.5px;
             transition: all 0.3s ease;
-            min-width: 140px;
+            min-width: 145px;
         }
+
         .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
-        .btn-call { background-color: #16a34a; }
-        .btn-wa { background-color: #25d366; color: #111; }
-        .btn-map { background-color: var(--gold); color: var(--primary); }
 
-        /* Footer */
+        .btn-call {
+            background: #16a34a;
+            color: white;
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: #0b1220;
+        }
+
+        .btn-map {
+            background: var(--gold);
+            color: #0b1220;
+        }
+
+        /* ========== FOOTER ========== */
         footer {
+            background: #070d18;
             text-align: center;
-            padding: 26px 20px;
-            background: #060f1e;
-            color: #94a3b8;
-            font-size: 14px;
-            margin-top: 50px;
-        }
-        footer p {
-            margin: 4px 0;
-        }
-        footer .gold {
-            color: var(--gold);
-            font-weight: 500;
+            padding: 28px 20px;
+            color: #64748b;
+            font-size: 13.5px;
+            margin-top: 60px;
         }
 
-        /* Responsive tweaks */
+        footer .brand {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 600px) {
             header {
-                padding: 45px 16px 40px;
+                padding: 55px 16px 48px;
             }
             .payment-number {
-                font-size: 22px;
+                font-size: 24px;
             }
             .btn {
                 width: 100%;
                 max-width: 280px;
+            }
+            .card {
+                padding: 24px 18px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
         <div class="bismillah">বিসমিল্লাহির রহমানির রহিম</div>
         <div class="badge">আপনাদের আগমন আমাদের অভিনন্দন</div>
@@ -433,156 +500,147 @@
 
     <div class="container">
 
-        <!-- Tailoring Services -->
-        <div class="section-title reveal">
-            <h2>আমাদের টেইলারিং সেবাসমূহ</h2>
-            <p>অভিজ্ঞ কারিগর দ্বারা নিখুঁত ফিটিং ও আধুনিক ডিজাইনে লেডিস ও জেন্টসের পোশাক তৈরি করা হয়</p>
-        </div>
+        <!-- SERVICES -->
+        <section class="section">
+            <div class="section-title">
+                <h2>আমাদের টেইলারিং সেবাসমূহ</h2>
+                <p>অভিজ্ঞ কারিগর দ্বারা নিখুঁত ফিটিং ও আধুনিক ডিজাইনে লেডিস ও জেন্টসের পোশাক তৈরি করা হয়</p>
+            </div>
 
-        <div class="grid reveal">
-            <div class="card">
-                <div class="card-icon">👔</div>
-                <h3>শার্ট ও প্যান্ট</h3>
-                <p>ফরমাল, ক্যাজুয়াল ও অফিস শার্ট। গ্যাবার্ডিন, জিন্স ও ট্রাউজার প্যান্ট নিখুঁত কাটিং ও সেলাই।</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">👔</div>
+                    <h3>শার্ট ও প্যান্ট</h3>
+                    <p>ফরমাল, ক্যাজুয়াল ও অফিস শার্ট। গ্যাবার্ডিন, জিন্স ও ট্রাউজার প্যান্ট নিখুঁত কাটিং ও সেলাই।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤵</div>
+                    <h3>স্যুট ও ব্লেজার</h3>
+                    <p>প্রিমিয়াম স্যুট, ব্লেজার ও ফরমাল পোশাক। পারফেক্ট ফিটিং ও উন্নত মানের ফিনিশিং।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👗</div>
+                    <h3>লেডিস পোশাক</h3>
+                    <p>সালোয়ার কামিজ, কুর্তি, ব্লাউজ, গাউন ও আধুনিক লেডিস ডিজাইন। নিখুঁত ফিটিং নিশ্চিত।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧥</div>
+                    <h3>পাঞ্জাবি ও কুর্তা</h3>
+                    <p>ঐতিহ্যবাহী ও আধুনিক পাঞ্জাবি, কুর্তা, জুব্বা। ঈদ ও বিশেষ অনুষ্ঠানের জন্য আদর্শ।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✂️</div>
+                    <h3>অল্টারেশন সার্ভিস</h3>
+                    <p>পোশাক ছোট-বড় করা, মেরামত, জিপার ও বোতাম পরিবর্তন। দ্রুত ও নির্ভুল কাজ।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>স্কুল ইউনিফর্ম</h3>
+                    <p>স্কুল, কলেজ ও অফিস ইউনিফর্ম। গ্রুপ অর্ডারে বিশেষ ছাড় ও দ্রুত ডেলিভারি।</p>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">🤵</div>
-                <h3>স্যুট ও ব্লেজার</h3>
-                <p>প্রিমিয়াম স্যুট, ব্লেজার ও ফরমাল পোশাক। পারফেক্ট ফিটিং ও উন্নত মানের ফিনিশিং।</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">👗</div>
-                <h3>লেডিস পোশাক</h3>
-                <p>সালোয়ার কামিজ, কুর্তি, ব্লাউজ, গাউন ও আধুনিক লেডিস ডিজাইন। নিখুঁত ফিটিং নিশ্চিত।</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🧥</div>
-                <h3>পাঞ্জাবি ও কুর্তা</h3>
-                <p>ঐতিহ্যবাহী ও আধুনিক পাঞ্জাবি, কুর্তা, জুব্বা। ঈদ ও বিশেষ অনুষ্ঠানের জন্য আদর্শ।</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">✂️</div>
-                <h3>অল্টারেশন সার্ভিস</h3>
-                <p>পোশাক ছোট-বড় করা, মেরামত, জিপার ও বোতাম পরিবর্তন। দ্রুত ও নির্ভুল কাজ।</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🎓</div>
-                <h3>স্কুল ইউনিফর্ম</h3>
-                <p>স্কুল, কলেজ ও অফিস ইউনিফর্ম। গ্রুপ অর্ডারে বিশেষ ছাড় ও দ্রুত ডেলিভারি।</p>
-            </div>
-        </div>
+        </section>
 
-        <!-- Equipment Section -->
-        <div class="section-title reveal">
-            <h2>টেইলারিং সরঞ্জাম ও মেশিন</h2>
-            <p>উন্নত মানের সেলাই মেশিন, কাটিং টুলস ও সকল প্রয়োজনীয় সরঞ্জাম এক জায়গায়</p>
-        </div>
+        <!-- EQUIPMENT -->
+        <section class="section">
+            <div class="section-title">
+                <h2>টেইলারিং সরঞ্জাম ও মেশিন</h2>
+                <p>উন্নত মানের সেলাই মেশিন, কাটিং টুলস ও সকল প্রয়োজনীয় সরঞ্জাম এক জায়গায়</p>
+            </div>
 
-        <div class="grid reveal">
-            <div class="card">
-                <div class="card-icon">🧵</div>
-                <h3>সেলাই মেশিন</h3>
-                <p>ব্র্যান্ডেড লকস্টিচ, ওভারলক ও এমব্রয়ডারি মেশিন। নতুন ও ব্যবহৃত দুই ধরনের মেশিন পাওয়া যায়।</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🧵</div>
+                    <h3>সেলাই মেশিন</h3>
+                    <p>ব্র্যান্ডেড লকস্টিচ, ওভারলক ও এমব্রয়ডারি মেশিন। নতুন ও ব্যবহৃত দুই ধরনের মেশিন পাওয়া যায়।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📏</div>
+                    <h3>কাটিং টুলস</h3>
+                    <p>কাটিং মেশিন, কাঁচি, টেপ, স্কেল, মার্কার ও সকল প্রকার কাটিং সরঞ্জাম।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🪡</div>
+                    <h3>সুতা ও এক্সেসরিজ</h3>
+                    <p>উন্নত মানের সুতা, জিপার, বোতাম, ইন্টারলাইনিং, লেবেল ও অন্যান্য সেলাই সামগ্রী।</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>মেশিন সার্ভিসিং</h3>
+                    <p>সেলাই মেশিন মেরামত, সার্ভিসিং ও পার্টস পরিবর্তন। অভিজ্ঞ টেকনিশিয়ান দ্বারা সার্ভিস।</p>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">📏</div>
-                <h3>কাটিং টুলস</h3>
-                <p>কাটিং মেশিন, কাঁচি, টেপ, স্কেল, মার্কার ও সকল প্রকার কাটিং সরঞ্জাম।</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🪡</div>
-                <h3>সুতা ও এক্সেসরিজ</h3>
-                <p>উন্নত মানের সুতা, জিপার, বোতাম, ইন্টারলাইনিং, লেবেল ও অন্যান্য সেলাই সামগ্রী।</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🛠️</div>
-                <h3>মেশিন সার্ভিসিং</h3>
-                <p>সেলাই মেশিন মেরামত, সার্ভিসিং ও পার্টস পরিবর্তন। অভিজ্ঞ টেকনিশিয়ান দ্বারা সার্ভিস।</p>
-            </div>
-        </div>
+        </section>
 
-        <!-- Why Choose Us -->
-        <div class="section-title reveal">
-            <h2>কেন চয়েস টেইলারিং হাউস?</h2>
-            <p>আমাদের প্রতিশ্রুতি ও সেবার মান</p>
-        </div>
+        <!-- WHY CHOOSE US -->
+        <section class="section">
+            <div class="section-title">
+                <h2>কেন চয়েস টেইলারিং হাউস?</h2>
+                <p>আমাদের প্রতিশ্রুতি ও সেবার মান</p>
+            </div>
 
-        <div class="features reveal">
-            <div class="feature-item">
-                <span>⏱️</span>
-                <h4>সময়মতো ডেলিভারি</h4>
-                <p>প্রতিশ্রুত তারিখে পোশাক হাতে পাবেন</p>
+            <div class="features">
+                <div class="feature">
+                    <span class="icon">⏱️</span>
+                    <h4>সময়মতো ডেলিভারি</h4>
+                    <p>প্রতিশ্রুত তারিখে পোশাক হাতে পাবেন</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">🎯</span>
+                    <h4>নিখুঁত ফিটিং</h4>
+                    <p>অভিজ্ঞ কারিগরের হাতে নিখুঁত মাপ</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">💎</span>
+                    <h4>প্রিমিয়াম কোয়ালিটি</h4>
+                    <p>সেরা কাপড় ও ফিনিশিং</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">💰</span>
+                    <h4>সাশ্রয়ী মূল্য</h4>
+                    <p>মান অনুযায়ী যৌক্তিক দাম</p>
+                </div>
             </div>
-            <div class="feature-item">
-                <span>🎯</span>
-                <h4>নিখুঁত ফিটিং</h4>
-                <p>অভিজ্ঞ কারিগরের হাতে নিখুঁত মাপ</p>
-            </div>
-            <div class="feature-item">
-                <span>💎</span>
-                <h4>প্রিমিয়াম কোয়ালিটি</h4>
-                <p>সেরা কাপড় ও ফিনিশিং</p>
-            </div>
-            <div class="feature-item">
-                <span>💰</span>
-                <h4>সাশ্রয়ী মূল্য</h4>
-                <p>মান অনুযায়ী যৌক্তিক দাম</p>
-            </div>
-        </div>
+        </section>
 
-        <!-- bKash Payment -->
-        <div class="payment-box reveal">
-            <div class="bkash-badge">bKash Merchant</div>
-            <h3>পেমেন্ট করুন bKash-এ</h3>
-            <p>মার্চেন্ট নাম্বারে সরাসরি পেমেন্ট করুন</p>
-            <div class="payment-number" id="bkashNumber">01713792312</div>
-            <button class="btn-copy" onclick="copyBkash()">কপি করুন</button>
-            <span class="copy-msg" id="copyMsg">কপি হয়েছে!</span>
-            <p style="margin-top: 14px; font-size: 13px; color: #64748b;">
-                পেমেন্ট করার পর ট্রানজেকশন আইডি ও নাম মেসেজ করে দিন
-            </p>
-        </div>
+        <!-- BKASH -->
+        <section class="section">
+            <div class="payment-box">
+                <div class="bkash-badge">bKash Merchant</div>
+                <h3>পেমেন্ট করুন bKash-এ</h3>
+                <p>মার্চেন্ট নাম্বারে সরাসরি পেমেন্ট করুন</p>
+                <div class="payment-number" id="bkashNumber">01713792312</div>
+                <button class="btn-copy" onclick="copyBkash()">কপি করুন</button>
+                <span class="copy-msg" id="copyMsg">কপি হয়েছে!</span>
+                <p style="margin-top: 14px; font-size: 13px; color: #64748b; position: relative;">
+                    পেমেন্ট করার পর ট্রানজেকশন আইডি ও নাম মেসেজ করে দিন
+                </p>
+            </div>
+        </section>
 
-        <!-- Contact Section -->
-        <div class="contact-box reveal">
-            <h2>যোগাযোগ করুন</h2>
-            <div class="proprietor">মালিক: মো: আলেক সরকার</div>
-            <div class="address">
-                চয়েস টেইলারিং হাউস<br>
-                (ম্যাপ থেকে লোকেশন দেখুন)
+        <!-- CONTACT -->
+        <section class="section">
+            <div class="contact-box">
+                <h2>যোগাযোগ করুন</h2>
+                <div class="proprietor">মালিক: মো: আলেক সরকার</div>
+                <div class="address">চয়েস টেইলারিং হাউস<br>(ম্যাপ থেকে লোকেশন দেখুন)</div>
+                <div class="btn-group">
+                    <a href="tel:+8801713792312" class="btn btn-call">📞 কল করুন</a>
+                    <a href="https://wa.me/8801713792312" class="btn btn-wa" target="_blank">💬 হোয়াটসঅ্যাপ</a>
+                    <a href="https://maps.app.goo.gl/hy5wnagVQEjznyxK7" class="btn btn-map" target="_blank">📍 ম্যাপ দেখুন</a>
+                </div>
             </div>
-            <div class="btn-group">
-                <a href="tel:+8801713792312" class="btn btn-call">📞 কল করুন</a>
-                <a href="https://wa.me/8801713792312" class="btn btn-wa" target="_blank">💬 হোয়াটসঅ্যাপ</a>
-                <a href="https://maps.app.goo.gl/hy5wnagVQEjznyxK7" class="btn btn-map" target="_blank">📍 ম্যাপ দেখুন</a>
-            </div>
-        </div>
+        </section>
 
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <p class="gold">চয়েস টেইলারিং হাউস</p>
-        <p>© ২০২৫ সর্বস্বত্ব সংরক্ষিত | মালিক: মো: আলেক সরকার</p>
+        <div class="brand">চয়েস টেইলারিং হাউস</div>
+        <div>© ২০২৫ সর্বস্বত্ব সংরক্ষিত | মালিক: মো: আলেক সরকার</div>
     </footer>
 
     <script>
-        // Scroll Reveal
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 80;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-        window.addEventListener('scroll', reveal);
-        window.addEventListener('load', reveal);
-
-        // Copy bKash Number
         function copyBkash() {
             const number = document.getElementById('bkashNumber').innerText;
             navigator.clipboard.writeText(number).then(() => {
